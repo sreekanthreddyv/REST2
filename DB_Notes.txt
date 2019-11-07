@@ -1,0 +1,91 @@
+Python doesn't have any mechanism that effectively restricts access to any instance variable or method. Python prescribes a convention of prefixing the name of the variable/method with single or double underscore to emulate the behaviour of protected and private access specifiers. 
+
+pip install MySQL-python
+
+import MySQLdb
+
+# Open database connection
+db = MySQLdb.connect("localhost","testuser","test123","TESTDB" )
+
+# prepare a cursor object using cursor() method
+cursor = db.cursor()
+
+# execute SQL query using execute() method.
+cursor.execute("SELECT VERSION()")
+
+# Fetch a single row using fetchone() method.
+data = cursor.fetchone()
+print "Database version : %s " % data
+
+# disconnect from server
+db.close()
+
+
+python manage.py inspectdb Table_Name --database=DataBaseName > filename.py
+
+python manage.py inspectdb > models.py
+
+python manage.py inspectdb Employee_table > models_file.py
+
+python manage.py inspectdb Employee_table --database=db_for_employee > models_file.py
+
+SELECT, UPDATE, DELETE, INSERT, WHERE
+
+-> SQL Statement sent to the RDBMS server
+
+-> List of key elements in SQL
+
+    Queries : Retrieves data against some criteria.
+    Statements : Controls transactions, program flow, connections, sessions, or diagnostics.
+    Clauses : Components of Queries and Statements.
+    Expressions : Combination of symbols and operators and a key part of the SQL statements.
+    Predicates : Specifies conditions.
+	
+Class 						Example
+=====						=======
+SQL data statements 		SELECT, INSERT, UPDATE, DELETE
+SQL connection statements 	CONNECT, DISCONNECT
+SQL schema statements 		ALTER, CREATE, DROP
+SQL control statements 		CALL, RETURN
+SQL diagnostic statements 	GET DIAGNOSTICS
+SQL session statements 		SET CONSTRAINT
+SQL transaction statements 	COMMIT, ROLLBACK
+
+
+Database and Table Manipulation
+
+Command 	 																						Description
+======= 																							===========
+CREATE DATABASE database_name 																		Create a database
+DROP DATABASE database_name 	 																	Delete a database
+CREATE TABLE "table_name" ("column_1" "column_1_data_type", "column_2" "column_2_data_type", ... ) 	Create a table in a database.
+ALTER TABLE table_name ADD column_name column_datatype 	 											Add columns in an existing table.
+ALTER TABLE table_name DDROP column_name column_datatype 											Delete columns in an existing table.
+DROP TABLE table_name 	 																			Delete a table.
+
+OR, XOR
+
+name like '%United%'
+
+ROUND(population/1000000,2)
+
+-> An SQL JOIN clause combines rows from two or more tables. It creates a set of rows in a temporary table. 
+
+The are two types of SQL JOINS - EQUI JOIN and NON EQUI JOIN
+
+1) SQL EQUI JOIN :
+
+The SQL EQUI JOIN is a simple SQL join uses the equal sign(=) as the comparison operator for the condition. It has two types - SQL Outer join and SQL Inner join.
+
+2) SQL NON EQUI JOIN :
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+# unique_together = ("user", "title") -> a user cannot create two posts with the same title
+
+# our API is to provide a way to serialize model instances into representations.
+
+# Serialization is the process of making a streamable representation of the data
+
+# generics.ListCreateAPIView -> Get a list of entities, or create them. Allows GET and POST.
+
+# generics.RetrieveUpdateDestroyAPIView -> Retrieve an individual entity details, or delete the entity. Allows GET and DELETE.
+
+# generics.CreateAPIView -> Allows creating entities, but not listing them. Allows POST.
+
+# serializer_class: This will be used for validating and deserializing the input and for serializing the output.
+
+# We have seen 4 ways to build API views until now
+
+	Pure Django views
+	APIView subclasses
+	generics.* subclasses
+	viewsets.ModelViewSet
+
+# When to use what
+
+	Use viewsets.ModelViewSet when you are going to allow all or most of CRUD operations on a model.
+	Use generics.* when you only want to allow some operations on a model
+	Use APIView when you want to completely customize the behaviour.
+
+
+# Django Rest Framework, we can set up a default authentication scheme which is applied to all views using DEFAULT_AUTHENTICATION_CLASSES.
+
+# enable rest_framework.authtoken app, so update INSTALLED_APPS in your settings.py.
+
+# the authentication_classes = () and permission_classes = () to exempt UserCreate from global authentication scheme.
+
+# APIRequestFactory: This is similar to Django’s RequestFactory. It allows you to create requests with any http method, which you can then pass on to any view method and compare responses.
+
+# APIClient: similar to Django’s Client. You can GET or POST a URL, and test responses.
+
+# APITestCase: similar to Django’s TestCase. Most of your tests will subclass this.
+
+# Urls define the entry points or where to access content. Templates define the end points that give form to the final content. And apps serve as the middleware between urls and templates,
+  altering or adding content from a database or user interactions.
+
+
+
+
+

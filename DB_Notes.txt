@@ -79,13 +79,101 @@ The SQL EQUI JOIN is a simple SQL join uses the equal sign(=) as the comparison 
 
 2) SQL NON EQUI JOIN :
 
+The SQL NON EQUI JOIN is a join uses comparison operator other than the equal sign like >, <, >=, <= with the condition.
+
+The SQL EQUI JOIN can be classified into two types - INNER JOIN and OUTER JOIN
+
+1. SQL INNER JOIN
+
+This type of EQUI JOIN returns all rows from tables where the key record of one table is equal to the key records of another table.
+
+2. SQL OUTER JOIN
+
+This type of EQUI JOIN returns all rows from one table and only those rows from the secondary table where the joined condition is satisfying i.e. the columns are equal in both tables.
+
+SELECT *
+  FROM game JOIN goal ON (id=matchid)
+
+The FROM clause says to merge data from the goal table with that from the game table. The ON says how to figure out which rows in game go with which rows in goal
+
+/* SELF JOIN */
+
+> Joining a table data by itself is called as self join.
+
+> Can use with alias name of the table.
+
+> Any no of alias names on a single table.
+
+> Can be impleted on a single table only.
+
+> when we compare a column values with in the same table.
+
+# SELECT e1.name from Employee E1, Employee E2 WHERE E!.salary=E2.salary AND E2.name='smith'
+
+/* RETRIVE METHODS */
 
 
+1) SELECTION: With where Condition
+2) PROJECTION: With out where condition
+3) JOINS:
+> When we retrive the data from more than one table.
+
+A) ANSI-FORMAT JOINS:
+======================================
+---> With 'ON' key word join condition
+
+Syntax:
+SELECT * /<list of column names> FROM <TN1> <JOIN KEY> <TN2> ON (Joining Condition);
+
+> INNER JOIN:
+=============
+> Retrive the data from multiple based on an equality condition.
+> Common Column.
+> The Common column datatype must be same.
+> Matching Data/Rows.
 
 
+> OUTER JOIN: Matching & Un-Matching Data from the table
 
+    * LEFT OUTER JOIN: Retrive the matching data from all tables, But unmatching data from the LEFT HAND side table only.
 
+    * RIGHT OUTER JOIN: Retrive the matching data from all tables, But unmatching data from the RIGHT HAND side table only.
+    * FULL OUTER JOIN: Retrive the matching & unmatching data from all tables.
 
+> CROSS JOIN: The Product of Rows.(M x N ROWS)
 
+* To join two or more tables data with out JOIN condition.
+* There is no req. A common column in the tables.
 
+> NATURAL JOIN: Not support in SQL
+* To avoid duplicate columns from JOIN table.
+
+B) Non-Ansi Format: (Old Style Format)
+======================================
+---> With 'WHERE' key word Join Condition
+
+1) EQUI-JOIN
+============
+> Retriving data from multiple tables based on an equality condition. ( = )
+> can't use the following operators
+  <, >, <=,>=,!<,!>,!=.
+
+2) NON EQUI-JOIN
+===============
+> Retriving data from multiple tables based on any condition except equal condition.
+> can't use ( = ) operator.
+> SELF JOIN
+
+Sub Queries / Nested Queries:
+============================
+
+1) Non-Corelated sub query:
+==========================
+> First Inner query, later outer query will execute
+> Outer query is always depends on the result of inner query.
+
+2) Corelated sub query:
+=======================
+> First Outer query, later inner query will execute
+> Inner query is always depends on the result of outer query.
 

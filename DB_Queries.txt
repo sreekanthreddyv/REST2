@@ -1,0 +1,147 @@
+The SQL SELECT general form
+
+    SELECT column-names
+    FROM table-name
+    WHERE condition
+    ORDER BY sort-order
+
+The SQL INSERT general form
+
+    INSERT table-name (column-names)
+    VALUES (column-values)
+
+The SQL UPDATE general form
+
+    UPDATE table-name
+    SET column-name = column-value
+    WHERE condition
+
+The SQL DELETE general form
+
+    DELETE table-name
+    WHERE condition
+
+The SQL SELECT TOP syntax
+
+    SELECT TOP n column-names
+      FROM table-name
+
+
+SQL OFFSET-FETCH Clause
+
+    OFFSET excludes the first set of records.
+    OFFSET can only be used with an ORDER BY clause.
+    OFFSET with FETCH NEXT returns a defined window of records.
+    OFFSET with FETCH NEXT is great for building pagination support.
+
+The SQL ORDER BY OFFSET syntax
+
+    SELECT column-names
+      FROM table-name
+     ORDER BY column-names
+    OFFSET n ROWS
+     FETCH NEXT m ROWS ONLY
+
+
+SQL SELECT DISTINCT Statement
+
+    SELECT DISTINCT returns only distinct (different) values.
+    SELECT DISTINCT eliminates duplicate records from the results.
+    DISTINCT can be used with aggregates: COUNT, AVG, MAX, etc.
+    DISTINCT operates on a single column. DISTINCT for multiple columns is not supported.
+
+	SELECT DISTINCT column-name
+      FROM table-name
+
+    SELECT COUNT (DISTINCT column-name)
+      FROM table-name
+
+
+SQL SELECT MIN, MAX Statement
+
+    SELECT MIN returns the minimum value for a column.
+    SELECT MAX returns the maximum value for a column.
+
+
+SQL SELECT COUNT, SUM, AVG
+
+    SELECT COUNT returns a count of the number of data values.
+    SELECT SUM returns the sum of the data values.
+    SELECT AVG returns the average of the data values.
+
+
+SQL WHERE AND, OR, NOT Clause
+
+    WHERE conditions can be combined with AND, OR, and NOT.
+    A WHERE clause with AND requires that two conditions are true.
+    A WHERE clause with OR requires that one of two conditions is true.
+    A WHERE clause with NOT negates the specified condition.
+
+The SQL WHERE BETWEEN syntax
+
+    SELECT column-names
+      FROM table-name
+     WHERE column-name BETWEEN value1 AND value2
+
+The SQL WHERE IN syntax
+
+    SELECT column-names
+      FROM table-name
+     WHERE column-name IN (values)
+
+
+The SQL WHERE IS NULL syntax
+
+    SELECT column-names
+      FROM table-name
+     WHERE column-name IS NULL -> IS NOT NULL
+
+SQL UNION Clause
+
+    UNION combines the result sets of two queries.
+    Column data types in the two queries must match.
+    UNION combines by column position rather than column name.
+
+The SQL UNION syntax
+
+    SELECT column-names
+      FROM table-name
+     UNION
+    SELECT column-names
+      FROM table-name
+
+
+SQL WHERE ANY, ALL Clause
+
+    ANY and ALL keywords are used with a WHERE or HAVING clause.
+    ANY and ALL operate on subqueries that return multiple values.
+    ANY returns true if any of the subquery values meet the condition.
+    ALL returns true if all of the subquery values meet the condition.
+
+    SELECT column-names
+      FROM table-name
+     WHERE column-name operator ANY --> ALL
+           (SELECT column-name
+              FROM table-name
+             WHERE condition)
+
+
+SQL SELECT INTO Statement
+
+    SELECT INTO copies data from one table into a new table.
+    SELECT INTO creates a new table located in the default filegroup.
+
+    SELECT column-names
+      INTO new-table-name
+      FROM table-name
+     WHERE EXISTS
+          (SELECT column-name
+             FROM table-name
+            WHERE condition)
+
+
+SQL INSERT INTO SELECT Statement
+
+    INSERT INTO SELECT copies data from one table to another table.
+    INSERT INTO SELECT requires that data types in source and target tables match.
+

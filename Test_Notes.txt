@@ -1,0 +1,37 @@
+unittest requires that:
+
+	You put your tests into classes as methods
+	You use a series of special assertion methods in the unittest.TestCase class instead of the built-in assert statement
+
+# If you’re starting from scratch, it is recommended that you use "nose2" instead of nose.
+
+# nose2 will try to discover all test scripts named test*.py and test cases inheriting from unittest.TestCase in your current directory:
+
+# pytest test cases are a series of functions in a Python file starting with the name test_.
+
+$ python -m unittest test
+$ python -m unittest -v test
+
+$ python -m unittest discover
+# This will search the current directory for any files named test*.py and attempt to test them.
+Once you have multiple test files, as long as you follow the test*.py naming pattern, you can provide the name of the directory instead by using the -s flag and the name of the directory:
+
+$ python -m unittest discover -s tests
+
+$ python -m unittest discover -s tests -t src
+# unittest will change to the src/ directory, scan for all test*.py files inside the the tests directory, and execute them.
+
+def test_bad_type(self):
+	data = "banana"
+	with self.assertRaises(TypeError):
+		result = sum(data)
+
+# Integration testing is the testing of multiple components of the application to check that they work together.
+
+$ python -m unittest discover -s tests/integration
+
+# Tox is an application that automates testing in multiple environments.
+
+$ pip install tox
+
+
